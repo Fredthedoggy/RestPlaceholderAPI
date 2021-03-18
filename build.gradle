@@ -1,0 +1,28 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+    id 'java'
+}
+
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
+compileJava.options.encoding 'UTF-8'
+
+group 'me.fredthedoggy'
+version '1.0.2'
+
+shadowJar {
+    relocate 'org.bstats', 'me.fredthedoggy.restpapi'
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://oss.sonatype.org/content/groups/public/' }
+    maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    maven { url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/' }
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
+    compileOnly 'me.clip:placeholderapi:2.10.9'
+    implementation 'com.sparkjava:spark-core:2.9.3'
+    implementation 'org.bstats:bstats-bukkit:2.2.1'
+}
