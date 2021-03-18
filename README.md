@@ -3,6 +3,9 @@ RestPlaceholderAPI (RestPAPI) is a small lightweight plugin, that allows you to 
 
 > :warning: **Warning:** RestPAPI Does nothing by itself, it just allows for external applications to parse placeholders via a simple Rest (http) API
 
+### Spigot Page / Downloads
+https://www.spigotmc.org/resources/rest-placeholderapi.90266/
+
 ### How Does it Work?
 RestPAPI parses a specific placeholder, as a specific player when you make a Get request to your server, in the format:
 http://backend.ip: port/<player-uuid>/<placeholder-without-%>, so an example would be http://example.com:8080/da8a8993-adfa-4d29-99b1-9d0f62fbb78d/player_name (returns json containing "Fredthedoggy")
