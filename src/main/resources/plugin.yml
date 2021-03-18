@@ -1,5 +1,5 @@
 name: RestPAPI
-version: ${project.version}
+version: @version@
 main: me.fredthedoggy.restpapi.Restpapi
 api-version: 1.13
 prefix: RestPAPI
