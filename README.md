@@ -1,7 +1,7 @@
 ## What Is RestPlaceholderAPI?
 RestPlaceholderAPI (RestPAPI) is a small lightweight plugin, that allows you to easily parse placeholders from an external application, like a Discord bot, or Forums.
 
-`Warning: RestPAPI Does nothing by itself, it just allows for external applications to parse placeholders via a simple Rest (http) API`
+> :warning: **Warning:** RestPAPI Does nothing by itself, it just allows for external applications to parse placeholders via a simple Rest (http) API
 
 ### How Does it Work?
 RestPAPI parses a specific placeholder, as a specific player when you make a Get request to your server, in the format:
