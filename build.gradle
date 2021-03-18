@@ -1,3 +1,5 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 plugins {
     id 'com.github.johnrengelman.shadow' version '6.1.0'
     id 'java'
@@ -25,4 +27,10 @@ dependencies {
     compileOnly 'me.clip:placeholderapi:2.10.9'
     implementation 'com.sparkjava:spark-core:2.9.3'
     implementation 'org.bstats:bstats-bukkit:2.2.1'
+}
+
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        filter ReplaceTokens, tokens: [version: version]
+    }
 }
