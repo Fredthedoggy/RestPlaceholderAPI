@@ -28,7 +28,6 @@ dependencies {
     implementation 'com.sparkjava:spark-core:2.9.3'
     implementation 'org.bstats:bstats-bukkit:2.2.1'
 }
-
 processResources {
     from(sourceSets.main.resources.srcDirs) {
         filter ReplaceTokens, tokens: [version: version]
