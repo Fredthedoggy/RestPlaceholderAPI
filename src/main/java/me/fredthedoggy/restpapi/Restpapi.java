@@ -9,7 +9,7 @@ import java.util.List;
 
 import static java.util.UUID.randomUUID;
 
-public final class Restpapi extends JavaPlugin {
+public final class Restpapi extends DependencyP{
 
     FileConfiguration config = getConfig();
     SparkWrapper webServer;
