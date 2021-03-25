@@ -1,5 +1,6 @@
 package me.fredthedoggy.restpapi;
 
+import com.heretere.hdl.spigot.DependencyPlugin;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -9,7 +10,7 @@ import java.util.List;
 
 import static java.util.UUID.randomUUID;
 
-public final class Restpapi extends JavaPlugin {
+public final class Restpapi extends DependencyPlugin {
 
     FileConfiguration config = getConfig();
     SparkWrapper webServer;
