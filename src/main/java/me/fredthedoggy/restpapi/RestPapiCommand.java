@@ -17,7 +17,7 @@ public class RestPapiCommand implements CommandExecutor {
     // This method is called, when somebody uses our command
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (args[0].equals("reload")) {
+        if (args.length >= 1 && args[0].equals("reload")) {
             restpapi.webServer.destroy();
             System.out.println("[RestPAPI] Disabled Webserver");
             this.restpapi.getLoader().loadWebServer();
