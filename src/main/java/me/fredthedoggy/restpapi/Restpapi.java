@@ -30,6 +30,7 @@ import java.util.Set;
 @MavenDependency("org|bstats:bstats-base:2.2.1")
 @MavenDependency("org|eclipse|jetty|websocket:websocket-servlet:9.4.31.v20200723")
 @MavenDependency("org|eclipse|jetty|websocket:websocket-client:9.4.31.v20200723")
+@MavenDependency("javax|servlet:javax|servlet-api:3.1.0")
 //relocate 'org.bstats', 'me.fredthedoggy.restpapi'
 @Relocation(from = "org|bstats", to = "me|fredthedoggy|restpapi")
 public final class Restpapi extends DependencyPlugin {
