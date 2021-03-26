@@ -9,7 +9,7 @@ sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
 compileJava.options.encoding 'UTF-8'
 
 group 'me.fredthedoggy'
-version '1.0.2'
+version '1.0.3'
 
 shadowJar {
     relocate 'org.bstats', 'me.fredthedoggy.restpapi'
