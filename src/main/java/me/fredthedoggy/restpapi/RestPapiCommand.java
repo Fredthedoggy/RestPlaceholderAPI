@@ -20,7 +20,7 @@ public class RestPapiCommand implements CommandExecutor {
         if (args[0].equals("reload")) {
             restpapi.webServer.destroy();
             System.out.println("[RestPAPI] Disabled Webserver");
-            restpapi.loadWebServer();
+            this.restpapi.getLoader().loadWebServer();
             if (sender instanceof Player) {
                 Player player = (Player) sender;
                 player.sendMessage(ChatColor.GREEN + "RestPAPI Config is being reloaded.");
