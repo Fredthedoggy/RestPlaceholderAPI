@@ -12,7 +12,7 @@ import static spark.Service.ignite;
 class SparkWrapper {
     Service http;
 
-    void create(int port, List < String > tokens) {
+    void create(int port, List<String> tokens) {
         http = ignite().port(port);
         http.get("/:uuid/:placeholder", (request, response) -> {
 
