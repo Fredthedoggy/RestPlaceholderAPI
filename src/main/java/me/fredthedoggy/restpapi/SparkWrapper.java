@@ -12,10 +12,9 @@ import static spark.Service.ignite;
 class SparkWrapper {
     Service http;
 
-    void create(int port, List<String> tokens) {
+    void create(int port, List < String > tokens) {
         http = ignite().port(port);
         http.get("/:uuid/:placeholder", (request, response) -> {
-
 
             if (request.headers("token") == null) {
                 response.type("application/json");
@@ -27,39 +26,38 @@ class SparkWrapper {
                 return "{\"status\":\"401\",\"message\":\"Unauthorized\"}";
             } else {
                 response.type("application/json");
-                if (request.params(":uuid").matches("[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}")) {
+                UUID specifiedUUID;
+                try {
+                    specifiedUUID = UUID.fromString(request.params(":uuid"));
+                }
+                catch(Exception e) {
+                    response.type("application/json");
+                    response.status(400);
+                    return "{\"status\":\"400\",\"message\":\"Invalid UUID\"}";
+                }
+                if (Bukkit.getOfflinePlayer(specifiedUUID).hasPlayedBefore()) {
 
-                    if (Bukkit.getOfflinePlayer(UUID.fromString(request.params(":uuid"))).hasPlayedBefore()) {
+                    response.type("application/json");
+                    response.status(200);
+
+                    String Placeholder = "{\"status\":\"200\",\"message\":\"" + PlaceholderAPI.setPlaceholders(Bukkit.getOfflinePlayer(UUID.fromString(request.params(":uuid"))), "%" + request.params(":placeholder") + "%") + "\"}";
+
+                    if (Placeholder.equals("%" + request.params(":placeholder") + "%")) {
 
                         response.type("application/json");
-                        response.status(200);
+                        response.status(406);
+                        return "{\"status\":\"406\",\"message\":\"Invalid Placeholder\"}";
 
-                        String Placeholder = "{\"status\":\"200\",\"message\":\"" + PlaceholderAPI.setPlaceholders(Bukkit.getOfflinePlayer(UUID.fromString(request.params(":uuid"))), "%" + request.params(":placeholder") + "%") + "\"}";
-
-                        if (Placeholder.equals("%" + request.params(":placeholder") + "%")) {
-
-                            response.type("application/json");
-                            response.status(406);
-                            return "{\"status\":\"406\",\"message\":\"Invalid Placeholder\"}";
-
-                        } else {
-
-                            return Placeholder;
-
-                        }
                     } else {
 
-                        response.type("application/json");
-                        response.status(400);
-                        return "{\"status\":\"400\",\"message\":\"Player Has Not Played Before\"}";
+                        return Placeholder;
 
                     }
-
                 } else {
 
                     response.type("application/json");
-                    response.status(404);
-                    return "{\"status\":\"404\",\"message\":\"Invalid UUID\"}";
+                    response.status(400);
+                    return "{\"status\":\"400\",\"message\":\"Player Has Not Played Before\"}";
 
                 }
             }
