@@ -26,6 +26,7 @@ public class RestPapiCommand implements CommandExecutor {
                 player.sendMessage(ChatColor.GREEN + "RestPAPI Config is being reloaded.");
             }
             System.out.println("[RestPAPI] Reloading Config");
+            return true;
         } else {
             if (sender instanceof Player) {
                 Player player = (Player) sender;
@@ -33,7 +34,7 @@ public class RestPapiCommand implements CommandExecutor {
             } else {
                 System.out.println("[RestPAPI] Run /restpapi reload to Reload RestPAPI");
             }
+            return true;
         }
-        return true;
     }
 }
