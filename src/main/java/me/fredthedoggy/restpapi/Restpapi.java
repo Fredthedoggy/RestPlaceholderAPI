@@ -51,7 +51,7 @@ public final class Restpapi extends DependencyPlugin {
     }
 
     @Override
-    public void enable() {
+    public void onEnable() {
         Metrics metrics = new Metrics(this, 10708);
 
         this.loader = new RestPapiLoader(this);
@@ -59,7 +59,7 @@ public final class Restpapi extends DependencyPlugin {
     }
 
     @Override
-    public void disable() {
+    public void onDisable() {
         this.loader.disable();
     }
 
