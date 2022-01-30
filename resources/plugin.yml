@@ -1,0 +1,17 @@
+name: RestPAPI
+version: 1.0.4
+main: me.fredthedoggy.restpapi.Restpapi
+api-version: 1.13
+prefix: RestPAPI
+load: STARTUP
+authors: [ Fredthedoggy ]
+depend: [PlaceholderAPI]
+commands:
+  restpapi:
+    description: Rest Papi Main Command
+    usage: /restpapi
+    permission: restpapi.admin
+  rpapi:
+    description: Rest Papi Main Command
+    usage: /rpapi
+    permission: restpapi.admin

@@ -3,8 +3,7 @@ package me.fredthedoggy.restpapi;
 import com.heretere.hdl.dependency.maven.annotation.MavenDependency;
 import com.heretere.hdl.exception.DependencyLoadException;
 import com.heretere.hdl.relocation.annotation.Relocation;
-import com.heretere.hdl.spigot.DependencyPlugin;
-import org.bstats.bukkit.Metrics;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.jetbrains.annotations.NotNull;
 
@@ -33,27 +32,23 @@ import java.util.Set;
 @MavenDependency("javax|servlet:javax|servlet-api:3.1.0")
 //relocate 'org.bstats', 'me.fredthedoggy.restpapi'
 @Relocation(from = "org|bstats", to = "me|fredthedoggy|restpapi")
-public final class Restpapi extends DependencyPlugin {
+public final class Restpapi extends JavaPlugin {
 
     private RestPapiLoader loader;
     FileConfiguration config = getConfig();
     SparkWrapper webServer;
 
-    @Override protected void fail(
+    protected void fail(
             @NotNull Set<@NotNull Throwable> genericErrors,
             @NotNull Set<@NotNull DependencyLoadException> dependencyErrors
     ) {
 
     }
 
-    @Override protected void load() {
-
-    }
+    protected void load() {}
 
     @Override
     public void onEnable() {
-        Metrics metrics = new Metrics(this, 10708);
-
         this.loader = new RestPapiLoader(this);
         this.loader.enable();
     }

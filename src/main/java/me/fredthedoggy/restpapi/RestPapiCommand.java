@@ -36,6 +36,5 @@ public class RestPapiCommand implements CommandExecutor {
             }
             return true;
         }
-        return false;
     }
 }
